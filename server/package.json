@@ -1,0 +1,17 @@
+{
+  "name": "employeehub-server",
+  "version": "1.0.0",
+  "description": "EmployeeHub API - Day 1: Express with in-memory data",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.1.0",
+    "mongoose": "^9.11.4"
+  }
+}

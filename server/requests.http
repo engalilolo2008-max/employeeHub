@@ -1,0 +1,41 @@
+# Day 1 requests. Open in VS Code with the "REST Client" extension, or copy into Postman.
+@base = http://localhost:5000/api
+
+### 1. All employees -> 200
+GET {{base}}/employees
+
+### 2. IT department only -> 200
+GET {{base}}/employees?departmentId=1
+
+### 3. Search by name -> 200
+GET {{base}}/employees?search=ali
+
+### 4. One employee -> 200
+GET {{base}}/employees/2
+
+### 5. Missing employee -> 404
+GET {{base}}/employees/99
+
+### 6. Hire -> 201
+POST {{base}}/employees
+Content-Type: application/json
+
+{ "name": "Youssef Samir", "jobTitle": "Analyst", "salary": 16000, "departmentId": 3 }
+
+### 7. Invalid data -> 400 with a list of errors
+POST {{base}}/employees
+Content-Type: application/json
+
+{ "name": "Yo", "salary": 10, "departmentId": 9 }
+
+### 8. Promote -> 200
+PUT {{base}}/employees/1
+Content-Type: application/json
+
+{ "name": "Ahmed Ali", "jobTitle": "Senior Developer", "salary": 30000, "departmentId": 1 }
+
+### 9. Delete -> 204
+DELETE {{base}}/employees/1
+
+### 10. Unknown route -> 404
+GET {{base}}/salaries
